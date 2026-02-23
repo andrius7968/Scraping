@@ -1,5 +1,4 @@
 import html
-
 import requests  #sirve para hacer solicitudes HTTP
 import csv  # sirve para escribir archivos CSV
 import re # busca patrones en el texto y extraer información específica y reducir espacios extra
@@ -7,6 +6,8 @@ import time
 from bs4 import BeautifulSoup
 import os
 import unicodedata
+
+from conexion_sql import guardar_en_mysql
 
 URL = ""
 
@@ -54,7 +55,18 @@ def limpiar(texto):
     return texto.strip()
 # La función limpiar se encarga de eliminar espacios extra y caracteres
 # no deseados del texto extraído.
-
+def limpiar_titulo(titulo):
+    """
+    Quita tildes, espacios, comillas y reemplaza comas internas por punto y coma.
+    """
+    if not titulo:
+        return ""
+    titulo = quitar_tildes(titulo)        # Quita tildes
+    titulo = titulo.replace('"', '')      # Quita comillas dobles
+    titulo = titulo.replace("'", '')      # Quita comillas simples
+    titulo = titulo.replace(",", ";")     # Reemplaza comas internas
+    titulo = titulo.strip()               # Quita espacios al inicio y al final
+    return titulo
 def limpiar_categoria(texto):
     if not texto:
         return ""
@@ -120,10 +132,8 @@ def obtener_html():
 # EXTRAER DATOS GENERALES
 #================================================
 def extraer_datos_generales(soup):
-    
-
     datos = {
-        "categoria": "",
+        "categoria": "No categorizado",  # Valor por defecto
         "nombre": "",
         "sexo": ""
     }
@@ -148,7 +158,10 @@ def extraer_datos_generales(soup):
             valor = limpiar(columnas[1].get_text())
 
             if campo == "Categoría":
-                datos["categoria"] = limpiar_categoria(valor)
+                categoria_limpia = limpiar_categoria(valor)
+                if categoria_limpia:  # Si existe una categoría válida
+                    datos["categoria"] = categoria_limpia
+                # Si no, se queda "No categorizado"
             elif campo == "Nombre":
                 datos["nombre"] = valor
             elif campo == "Sexo":
@@ -1350,7 +1363,6 @@ def extraer_informes_finales_investigacion(soup):
 # EXTRAER PROYECTOS
 #================================================
 def extraer_proyectos(soup):
-    
 
     resultados = []
 
@@ -1383,6 +1395,7 @@ def extraer_proyectos(soup):
                 # 👉 El valor REAL está en el siguiente nodo
                 if i + 1 < len(children):
                     nodo_hijo = limpiar(children[i + 1])
+                    nodo_hijo = nodo_hijo.replace(",", "")
 
             # 🔹 Texto plano
             if isinstance(child, str):
@@ -1394,7 +1407,7 @@ def extraer_proyectos(soup):
                 # ✅ TÍTULO (primer texto largo que NO sea el tipo)
                 if not titulo and texto != nodo_hijo and len(texto) > 5:
                     titulo = texto
-                    titulo = quitar_tildes(titulo)
+                    titulo = limpiar_titulo(titulo)
 
                 # ✅ AÑO
                 anio_match = re.search(r"\b(19|20)\d{2}\b", texto)
@@ -1409,6 +1422,8 @@ def extraer_proyectos(soup):
             })
     print(f"✅ Total PROYECTOS: {len(resultados)}")
     return resultados
+
+
 
 def guardar_csv(filas):
     archivo = "cv_datos_generales.csv"
@@ -1436,12 +1451,22 @@ def guardar_csv(filas):
 
 def main():
     print("Iniciando scraping CVLAC...")
-    
+
     html = obtener_html()
     with open("debug.html", "w", encoding="utf-8") as f:
         f.write(html)
+
     soup = BeautifulSoup(html, "lxml")
 
+    # -----------------------------
+    # Inicializar variables
+    # -----------------------------
+    filas_csv = []  # Para guardar todo antes de exportar CSV
+    filas_mysql = []  # Para la base de datos
+
+    # -----------------------------
+    # Extraer secciones
+    # -----------------------------
     datos_generales = extraer_datos_generales(soup)
     extra_formacion = extraer_ultima_formacion_academica(soup)
     trabajos = extraer_trabajos_dirigidos(soup)
@@ -1466,257 +1491,68 @@ def main():
     conceptos_tecnicos = extraer_conceptos_tecnicos(soup)
     informes_finales_investigacion = extraer_informes_finales_investigacion(soup)
     proyectos = extraer_proyectos(soup)
-   
 
-    filas_csv = []
-    
-    # 🔹 Trabajos dirigidos
-    for trabajo in trabajos:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": trabajo["NodoHijo"],
-            "Titulo_proyecto": trabajo["Titulo_proyecto"],
-            "año": trabajo["año"]
-        })
+    # -----------------------------
+    # Construir filas_csv
+    # -----------------------------
+    secciones = [
+        (trabajos, "Titulo_proyecto"),
+        (consultorias, "Titulo_proyecto"),
+        (eventos, "Titulo_proyecto"),
+        (apropiacion_social, "Titulo_producto"),
+        (apropiacion_normatividad, "Titulo_producto"),
+        (cadenas_productivas, "Titulo_producto"),
+        (contenido_transmedia, "Titulo_producto"),
+        (desarrollos_web, "Titulo_producto"),
+        (articulos, "Titulo_proyecto"),
+        (libros, "Titulo_proyecto"),
+        (capitulos_libro, "Titulo_proyecto"),
+        (innovaciones_gestion_empresarial, "Titulo_proyecto"),
+        (documentos_trabajo, "Titulo_documento"),
+        (patentes, "Titulo_patente"),
+        (secretos_empresariales, "Titulo_secreto"),
+        (software, "Titulo_proyecto"),
+        (prototipos_industriales, "Titulo_prototipo"),
+        (innovacion_procesos, "Titulo_proyecto"),
+        (informes_tecnicos, "Titulo_proyecto"),
+        (conceptos_tecnicos, "Titulo_proyecto"),
+        (informes_finales_investigacion, "Titulo_proyecto"),
+        (proyectos, "Titulo_proyecto"),
+    ]
 
-    # 🔹 Consultorías
-    for consulta in consultorias:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": consulta["NodoHijo"],
-            "Titulo_proyecto": consulta["Titulo_proyecto"],
-            "año": consulta["año"]
-        })
-    # 🔹 Eventos científicos
-    for evento in eventos:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": evento["NodoHijo"],
-            "Titulo_proyecto": evento["Titulo_proyecto"],
-            "año": evento["año"]
-        })
-    # 🔹 Apropiación social del conocimiento
-    for apropiacion in apropiacion_social:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": apropiacion["NodoHijo"],
-            "Titulo_proyecto": apropiacion["Titulo_producto"],
-            "año": apropiacion["año"]
-        })
-    # 🔹 Apropiación normatividad del conocimiento
-    for normatividad in apropiacion_normatividad:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": normatividad["NodoHijo"],
-            "Titulo_proyecto": normatividad["Titulo_producto"],
-            "año": normatividad["año"]
-        })
-    # 🔹 Apropiación cadenas productivas
-    for cadena in cadenas_productivas:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": cadena["NodoHijo"],
-            "Titulo_proyecto": cadena["Titulo_producto"],
-            "año": cadena["año"]
-        })
-    # 🔹 Producción contenido transmedia
-    for contenido in contenido_transmedia:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": contenido["NodoHijo"],
-            "Titulo_proyecto": contenido["Titulo_producto"],
-            "año": contenido["año"]
-        })
-    # 🔹 Desarrollos web
-    for desarrollo in desarrollos_web:  
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": desarrollo["NodoHijo"],
-            "Titulo_proyecto": desarrollo["Titulo_producto"],
-            "año": desarrollo["año"]
-        })
-    # 🔹 Artículos
-    for articulo in articulos:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": articulo["NodoHijo"],
-            "Titulo_proyecto": articulo["Titulo_proyecto"],
-            "año": articulo["año"]
-        })
-    # 🔹 Libros
-    for libro in libros:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": libro["NodoHijo"],
-            "Titulo_proyecto": libro["Titulo_proyecto"],
-            "año": libro["año"]
-        })
-    # 🔹 Capítulos de libro
-    for capitulo in capitulos_libro:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": capitulo["NodoHijo"],
-            "Titulo_proyecto": capitulo["Titulo_proyecto"],
-            "año": capitulo["año"]
-        })
-    # 🔹 Innovaciones de gestión empresarial
-    for innovacion in innovaciones_gestion_empresarial:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": innovacion["NodoHijo"],
-            "Titulo_proyecto": innovacion["Titulo_proyecto"],
-            "año": innovacion["año"]
-        })
-    # 🔹 Documentos de trabajo
-    for documento in documentos_trabajo:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": documento["NodoHijo"],
-            "Titulo_proyecto": documento["Titulo_documento"],
-            "año": documento["año"]
-        })
-    # 🔹 Patentes
-    for patente in patentes:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": patente["NodoHijo"],
-            "Titulo_proyecto": patente["Titulo_patente"],
-            "año": patente["año"]
-        })  
-    # 🔹 Secretos empresariales
-    for secreto in secretos_empresariales:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": secreto["NodoHijo"],
-            "Titulo_proyecto": secreto["Titulo_secreto"],
-            "año": secreto["año"]
-        })
-    # 🔹 Software
-    for soft in software:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": soft["NodoHijo"],
-            "Titulo_proyecto": soft["Titulo_proyecto"],
-            "año": soft["año"]
-        })
-    # 🔹 Prototipos industriales
-    for prototipo in prototipos_industriales:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": prototipo["NodoHijo"],
-            "Titulo_proyecto": prototipo["Titulo_prototipo"],
-            "año": prototipo["año"]
-        })
-    # 🔹 Innovación de proceso o procedimiento
-    for innovacion in innovacion_procesos:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": innovacion["NodoHijo"],
-            "Titulo_proyecto": innovacion["Titulo_proyecto"],
-            "año": innovacion["año"]
-        })
-    # 🔹 Informes técnicos
-    for informe in informes_tecnicos:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": informe["NodoHijo"],
-            "Titulo_proyecto": informe["Titulo_proyecto"],
-            "año": informe["año"]
-        })
-    # 🔹 Conceptos técnicos
-    for concepto in conceptos_tecnicos:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": concepto["NodoHijo"],
-            "Titulo_proyecto": concepto["Titulo_proyecto"],
-            "año": concepto["año"]
-        })
-    # 🔹 Informes finales de investigación
-    for informe_final in informes_finales_investigacion:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": informe_final["NodoHijo"],
-            "Titulo_proyecto": informe_final["Titulo_proyecto"],
-            "año": informe_final["año"]
-        })
-    # 🔹 Proyectos
-    for proyecto in proyectos:
-        filas_csv.append({
-            "categoria": datos_generales["categoria"],
-            "nombre": datos_generales["nombre"],
-            "sexo": datos_generales["sexo"],
-            "UltimaFormacionAcademica": extra_formacion["UltimaFormacionAcademica"],
-            "NodoHijo": proyecto["NodoHijo"],
-            "Titulo_proyecto": proyecto["Titulo_proyecto"],
-            "año": proyecto["año"]
-        })
+    for seccion, campo_titulo in secciones:
+        for item in seccion:
+            filas_csv.append({
+                "categoria": datos_generales.get("categoria", ""),
+                "nombre": datos_generales.get("nombre", ""),
+                "sexo": datos_generales.get("sexo", ""),
+                "UltimaFormacionAcademica": extra_formacion.get("UltimaFormacionAcademica", ""),
+                "NodoHijo": item.get("NodoHijo", ""),
+                "Titulo_proyecto": item.get(campo_titulo, ""),
+                "año": item.get("año", "")
+            })
+
+    # -----------------------------
+    # Guardar CSV
+    # -----------------------------
     guardar_csv(filas_csv)
-
     print(f"✓ {len(filas_csv)} registros guardados en cvlac_completo.csv")
-    
+
+    # -----------------------------
+    # Preparar filas para MySQL y guardar
+    # -----------------------------
+    for fila in filas_csv:
+        filas_mysql.append({
+            "categoria": fila["categoria"],
+            "nombre": fila["nombre"],
+            "sexo": fila["sexo"],
+            "grado": fila["UltimaFormacionAcademica"],
+            "tipo_proyecto": fila["NodoHijo"],
+            "titulo_proyecto": fila["Titulo_proyecto"],
+            "anio": fila["año"]
+        })
+    guardar_en_mysql(filas_mysql)
+    print(f"✓ {len(filas_mysql)} registros guardados en MySQL")
 
 if __name__ == "__main__":
     URLS = [
