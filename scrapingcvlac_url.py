@@ -7,7 +7,7 @@ import time
 from bs4 import BeautifulSoup
 import os
 import unicodedata
-URL = "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001671425" #Profe Saray
+#URL = "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001671425" #Profe Saray
 #URL = "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001685519" #Jaime Blanco Lopez
 #URL = "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000113761" #Addriana
 #URL = "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001740020" #Edna Conde
@@ -16,6 +16,7 @@ URL = "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.
 #URL = "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001006690" #Jhon niño
 #URL = "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000674400&mostrar=produccion" #Walter arboleda
 #URL = "https://scienti.minciencias.gov.co/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0001413648" #Wilson Arana
+
 
 HEADERS = {
     "User-Agent": (

@@ -32,3 +32,5 @@ def guardar_en_mysql(datos):
     cursor.close()
     conexion.close()
     print("✅ Datos guardados en MySQL correctamente")
+
+    

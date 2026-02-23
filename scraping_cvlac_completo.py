@@ -1303,6 +1303,8 @@ def extraer_conceptos_tecnicos(soup):
     return resultados
 
 
+
+
 #================================================
 # EXTRAER INFORMES FINALES DE INVESTIGACIÓN
 #================================================
