@@ -1302,6 +1302,7 @@ def extraer_conceptos_tecnicos(soup):
     print(f"✅ Total CONCEPTOS TÉCNICOS: {len(resultados)}")
     return resultados
 
+
 #================================================
 # EXTRAER INFORMES FINALES DE INVESTIGACIÓN
 #================================================
