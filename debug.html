@@ -1,0 +1,4042 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+
+
+
+
+<html>
+
+    <head>
+        <title>CvLAC - RG</title>
+<script>
+	var texto="";
+	var NS4 = (document.layers); // Which browser?
+	var IE4 = (document.all);
+	var win = window; // window to search.
+	var n = 0;
+	
+	function resaltar(valor){
+	var encontro=0;
+	var donde=0;
+	//valor=document.getElementById('tt').value;
+	reemplazar=RegExp(valor,"i");
+	por="<span style=\u0022background-Color:yellow;\u0022>"+valor+"</span>";
+	if(texto==""){texto=document.body.innerHTML};
+	txt=texto.split(">");
+	for (x=0;x<txt.length;x++){
+	desde=(txt[x].indexOf("<")!=-1)?txt[x].indexOf("<"):0;
+	tempP=txt[x].slice(0,desde);
+	tempU=txt[x].slice(desde);
+	tempPx=tempP.split(" ");
+	for(y=0;y<tempPx.length;y++){
+	if(tempPx[y].search(reemplazar)!=-1){
+	tempPx[y]=tempPx[y].replace(reemplazar,por);
+	encontro+=1;
+	}
+	}
+	txt[x]=tempPx.join(" ")+tempU;
+	}
+	document.body.innerHTML=txt.join(">");
+	//alert((encontro==0)?"No se encontro ''"+valor+"''":"Se encontraron "+encontro+" coincidencias");
+	encontro=null;
+	donde=null;
+	}
+	
+	<!-- Original by http://javascript.internet.com More javascripts http://www.hypergurl.com -->
+	
+	function findInPage(str) {
+	//resaltar(str);
+	var txt, i, found; if (str == "") return false; // Find next occurance of the given string on the page, wrap around to the
+	// start of the page if necessary.
+	if (NS4) { // Look for match starting at the current point. If not found, rewind
+	// back to the first match.
+	if (!win.find(str)) while(win.find(str, false, true))
+	n++; else n++; // If not found in either direction, give message. if (n == 0)
+	alert("Not found."); } if (IE4) { txt = win.document.body.createTextRange();
+	// Find the nth match from the top of the page.
+	for (i = 0; i <= n && (found = txt.findText(str)) != false; i++) { txt.moveStart("character", 1); txt.moveEnd("textedit"); } // If found, mark it and scroll it into view.
+	if (found) { txt.moveStart("character", -1); txt.findText(str);
+	txt.select(); txt.scrollIntoView(); n++; } // Otherwise, start over at the top of the page and find first match.
+	else { if (n > 0) { n = 0; findInPage(str);
+	} // Not found anywhere, give message.
+	else alert("Not found."); } }
+	return false; }
+</script>
+        <meta name="google-site-verification" content="i8iweOHAFYQV0nLnM5KwROxv6enyqJioSpdx0w_uZSI" />                        
+    
+        <meta name="google-site-verification" content="i8iweOHAFYQV0nLnM5KwROxv6enyqJioSpdx0w_uZSI" />
+        <link href="/cvlac/css/visualizador.css;jsessionid=64622E7631EE6FFF3EAD859DCC077AC0" type="text/css" rel="stylesheet">
+        <meta content="no-cache" http-equiv="pragma">
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    </head>
+
+<body>
+
+<div class="wrapper">
+            <div class="header">
+                <div class="menubar">
+                    <ul class="mmenu" style="height:23px;padding:2px;">
+                        <li ><a class="menu" href="#" style="width:100px">Datos generales</a>
+
+                            <ul>
+                                <li><a class="menu" href="#datos_generales">Identificaci&oacute;n</a></li>
+                                <li><a class="menu" href="#redes_identificadores">Redes sociales acad&eacute;micas</a></li>
+                                <li><a class="menu" href="#red_identificadores">Identificadores de autor</a></li>
+                                <li><a class="menu" href="#formacion_acad">Formaci&oacute;n acad&eacute;mica</a></li>
+                                <li><a class="menu" href="#formacion_comp">Formaci&oacute;n complementaria</a></li>
+                                <li><a class="menu" href="#estancias_posdoctorales">Estancias posdoctorales</a></li>
+                                <li><a class="menu" href="#experiencia">Experiencia profesional</a></li>
+                                <li><a class="menu" href="#otra_info_personal">Otra informaci&oacute;n personal</a></li>
+                            </ul>
+
+                        </li>
+                        <li ><a class="menu" href="#" style="width:130px">Actividades formaci&oacute;n</a>
+
+                            <ul>
+                                <li><a class="menu" href="#asesorias">Asesor&iacute;as</a></li>
+                                <li><a class="menu" href="#curso_corta_du">Cursos de corta duraci&oacute;n</a></li>
+                                <li><a class="menu" href="#trabajos_dirigi">Trabajos dirigidos/tutor&iacute;as</a></li>
+                            </ul>
+
+                        </li>
+                        <li ><a class="menu" href="#" style="width:120px">Actividades evaluador</a>
+
+                            <ul>
+                                <li><a class="menu" href="#jurado">Jurado comisiones evaluadoras de trabajo de grado</a></li>
+                                <li><a class="menu" href="#par">Par evaluador</a></li>
+                                <li><a class="menu" href="#comite">Participaci&oacute;n en comit&eacute; de evaluaci&oacute;n</a></li>
+                            </ul>
+
+                        </li>
+                        <li ><a class="menu" href="#" style="width:130px">Apropiaci&oacute;n social</a>
+
+                            <ul>
+                                <li><a class="menu" href="#edicion">Edici&oacute;n</a></li>
+                                <li><a class="menu" href="#evento">Evento cient&iacute;fico</a></li>
+                                <li><a class="menu" href="#re_co">Redes de conocimiento especializado</a></li>                                
+                                <li><a class="menu" href="#asc_for">Fortalecimiento o soluci&oacute;n de asuntos de inter&eacute;s social</a></li>									
+                                <li><a class="menu" href="#asc_tra">Trabajo conjunto entre un Centro de Ciencia y un grupo de investigaci&oacute;n</a></li>									
+                                <li><a class="menu" href="#asc_gen">Generaci&oacute;n de insumos de pol&iacute;tica p&uacute;blica y normatividad</a></li>									
+                                <li><a class="menu" href="#asc_cad">Fortalecimiento de cadenas productivas</a></li>									
+                                <li><a class="menu" href="#div_ced">Publicaciones editoriales no especializadas</a></li>									
+                                <li><a class="menu" href="#div_cda">Producciones de contenido digital Audiovisual</a></li>									
+                                <li><a class="menu" href="#div_cds">Producciones de contenido digital Sonoro</a></li>									
+                                <li><a class="menu" href="#div_cdr">Producciones de contenido digital Recursos gr&aacute;ficos</a></li>									
+                                <li><a class="menu" href="#div_ctr">Producci&oacute;n de estrategias y contenidos transmedia</a></li>									
+                                <li><a class="menu" href="#div_des">Desarrollos web</a></li>	
+                            </ul>
+
+                        </li>
+
+                        <li ><a class="menu" href="#" style="width:140px">Producci&oacute;n bibliogr&aacute;fica</a>
+
+                            <ul>
+                                <li><a class="menu" href="#articulos">Art&iacute;culos</a></li>
+                                <li><a class="menu" href="#libros">Libros</a></li>
+                                <li><a class="menu" href="#capitulos">Cap&iacute;tulos de libro</a></li>
+                                <li><a class="menu" href="#nota_cientifica">Nota cient&iacute;fica</a></li>
+                                <li><a class="menu" href="#textos">Textos en publicaciones no cient&iacute;ficas</a></li>
+                                <li><a class="menu" href="#otra_prod_biblio">Otra producci&oacute;n bibliog&aacute;fica</a></li>
+                                <li><a class="menu" href="#lib_tra">Traducciones Filol&oacute;gicas y Edición de Fuentes</a></li>
+                                <li><a class="menu" href="#lib_cre">Libro de creaci&oacute;n (Piloto)</a></li>
+                                <li><a class="menu" href="#lib_for">Libro de Formaci&oacute;n</a></li>
+                                <li><a class="menu" href="#lib_div">Libros de divulgaci&oacute;n y/o Compilaci&oacute;n de divulgaci&oacute;n</a></li>
+                                <li><a class="menu" href="#lib_man">Manuales y Gu&iacute;as Especializadas</a></li>
+
+                            </ul>
+
+                        </li>	
+                        <li ><a class="menu" href="#" style="width:120px">Producci&oacute;n T&eacute;cnica</a>
+
+                            <ul>
+                                <li><a class="menu" href="#patentes">Patentes</a></li>
+                                <li><a class="menu" href="#secretos">Secretos empresariales</a></li>
+                                <li><a class="menu" href="#software">Software</a></li>
+                                <li><a class="menu" href="#tecnologicos">Productos tenol&oacute;gicos</a></li>
+                                <li><a class="menu" href="#procesos">Procesos o t&eacute;cnicas</a></li>
+                                <li><a class="menu" href="#trabajos_tec">Trabajos t&eacute;cnicos</a></li>
+                                <li><a class="menu" href="#normas">Normas y Regulaciones</a></li>
+                                <li><a class="menu" href="#otra_prod_tecnica">Otra producci&oacute;n t&eacute;cnica</a></li>
+                                <li><a class="menu" href="#base_tecnologica">Empresas de base tecnologica</a></li>
+                            </ul>
+
+                        </li>	
+                        <li ><a class="menu" href="#" style="width:100px">M&aacute;s informaci&oacute;n</a>
+
+                            <ul>
+                                <li><a class="menu" href="#demas_trabajos">Dem&aacute;s Trabajos</a></li>
+                                <li><a class="menu" href="#proyectos">Proyectos</a></li>
+                            </ul>
+
+                        </li>
+                        <li><a class="menu" href="#" style="width:110px">Producción en arte</a>
+
+                            <ul>
+                                <li><a class="menu" href="#obras_productos">Obras o productos</a></li>
+                                <li><a class="menu" href="#registros_acuerdo">Registros de acuerdo de licencia</a></li>
+                                <li><a class="menu" href="#crea_cul">Industrias Creativas y culturales</a></li>
+                                <li><a class="menu" href="#even_art">Evento artistico</a></li>
+                                <li><a class="menu" href="#talleres">Talleres creativos</a></li>
+                            </ul>
+
+                        </li>
+                        <li><a class="menu" href="#" style="width:60px;">Buscar</a><!--[if IE 7]><!--><!--<![endif]-->
+
+                            <ul>
+
+                                <li>
+                                    <form style="margin:0px;" name="search" onSubmit="return findInPage(this.string.value);" method="get">
+                                        <input name="string" type="text" onChange="n = 0;" /><br />
+                                        <input type="submit" value="Buscar" name="search" />
+                                    </form>
+                                </li>
+                            </ul>
+
+                        </li>				
+                    </ul>		
+                </div>
+            </div>
+
+            <div class="sep">&nbsp;</div>
+
+            <div class="container">
+                <table with="100%">   
+                    <tr><td><h3 align="center"><font size="3">Hoja de vida</font></h3></td></tr>
+                    <tr>        
+                        <td width="100%"><a name="datos_generales"></a>
+                            <table width="100%" style="border:#999 1px solid">                    
+                                
+                                <tr>    
+                                    <td colspan="2" class="messageText"><b>Par evaluador reconocido por Minciencias.</b></td>                            
+                                </tr>                        
+                                
+                                
+                                    <tr>
+                                        <td>Categor&iacute;a</td>
+                                        <td>
+                                            Investigador Junior (IJ) con vigencia
+                                            
+                                                hasta la publicación de los resultados de la siguiente convocatoria
+                                                
+                                            
+                                        </td>
+                                    </tr>
+                                                          
+                                <tr>
+                                    <td>Nombre</td>
+                                    <td>
+                                        wilson&nbsp;arana&nbsp;palomino
+                                    </td>            
+                                </tr>
+                                <tr>           
+                                    <td>Nombre en citaciones</td>
+                                    <td>ARANA PALOMINO, WILSON</td>
+                                </tr>        
+                                <tr>            
+                                    <td>Nacionalidad</td>
+                                    <td>Colombiana</td>            
+                                </tr>                                 
+                                <tr>            
+                                    <td>Sexo</td>
+                                    <td>Masculino</td>            
+                                </tr>                     
+                            </table>
+                            </td>
+                    </tr>
+
+                    <!--INICIO REDES -->
+                    <tr>
+                        <td width="100%"><a name="redes_identificadores"></a>
+                            <table width="100%" style="border:#999 1px solid">
+                                <tr>
+                                    <td><h3 >Redes sociales acad&eacute;micas</h3></td>
+                                </tr>
+                                    
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <a target="_blank" href="https://scholar.google.es/citations?hl=es&user=e5n-GSUAAAAJ" style="color: #007A81">Google Scholar</a>
+                                    </td>
+                                </tr>
+                                    
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <a target="_blank" href="https://www.linkedin.com/in/wilson-arana-palomino" style="color: #007A81">Linkedln</a>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                            </td>
+                    </tr>
+
+                    <!--                FIN REDES-->
+
+                    <!--INICIO IDENTIFICADORES -->
+                    <tr>
+                        <td width="100%"><a name="red_identificadores"></a>
+                            <table width="100%" style="border:#999 1px solid">
+                                <tr>
+                                    <td><h3 >Identificadores de autor</h3></td>
+                                </tr>
+                                    
+                                <tr>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        
+                                        <a target="_blank" href="https://orcid.org/0000-0002-5157-2928" style="color: #007A81">Open Researcher and Contributor ID (ORCID)</a>
+                                    </td>
+                                </tr>
+                                
+                            </table>
+                            </td>
+                    </tr>
+
+                    <!--                FIN IDENTIFICADORES-->
+
+                    <tr>        
+                        <td width="100%"><a name="formacion_acad"></a>
+                            <table width="100%" style="border:#999 1px solid">
+                                <tr>
+                                    <td colspan="2"><h3>Formaci&oacute;n Acad&eacute;mica</h3></td>
+                                </tr>   
+                                
+                                <tr>
+                                    <td><li>&nbsp;</li></td>    
+                        <td><b>Doctorado</b>
+                            Universidad Nacional de Rosario <br />
+                            Doctorado en Humanidades y Artes. Educación<br />
+                            Septiembrede2013 - Juniode 2023<br />
+                            El diseño curricular desde la perspectiva socioformativa, una oportunidad para integrar al estudiante como ser holístico</td>
+                    </tr>
+                    
+                                <tr>
+                                    <td><li>&nbsp;</li></td>    
+                        <td><b>Maestría/Magister</b>
+                            Universidad Tecnológica Metropolitana<br />
+                            Magister en Informática Educativa<br />
+                            Marzode2009 - Agostode 2012<br />
+                            Impacto de tic en la enseñanza de cálculo en una institución</td>
+                    </tr>
+                    
+                                <tr>
+                                    <td><li>&nbsp;</li></td>    
+                        <td><b>Especialización</b>
+                            FUNDACIÓN UNIVERSITARIA LOS LIBERTADORES<br />
+                            ESPECIALIZACION EN ESTADISTICA APLICADA<br />
+                            Agostode2020 - Agostode 2021<br />
+                            </td>
+                    </tr>
+                    
+                                <tr>
+                                    <td><li>&nbsp;</li></td>    
+                        <td><b>Pregrado/Universitario</b>
+                            UNIVERSIDAD DEL TOLIMA<br />
+                            Licenciatura en Matemáticas y física<br />
+                            Enerode2000 - Diciembrede 2004<br />
+                            </td>
+                    </tr>
+                    
+                </table>
+                
+                </td>
+                </tr>
+                <tr>        
+                    <td width="100%"><a name="formacion_comp"></a>
+                </td>
+                </tr>
+
+                <tr>        
+                    <td width="100%"><a name="estancias_posdoctorales"></a>
+                </td>
+                </tr> 
+
+                <tr>
+                    <td width="100%"><a name="experiencia"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td colspan="2"><h3 >Experiencia profesional</h3></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>Corporación Universitaria Adventista</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Enero de 2011            
+                         de Actual<br><br>   
+                        
+                        <span class="blueTitle">Actividades de administración</span><br>
+                                            
+                        - &nbsp;Jefe de departamento            
+                        <i> - Cargo:</i>&nbsp;Jefe de departamento          
+                        Enero de 2011            
+                         de <br>
+
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>Colegio Advnetista de Ibagué</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Enero de 2004            
+                        Noviembre de 2009<br><br>   
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>IED JOSÉ ACEVEDO Y GÓMEZ</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>40&nbsp;horas Semanales
+                        Enero de 2007            
+                        Enero de 2008<br><br>   
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                            <tr>
+                                <td><li>&nbsp;</li></td>        
+                    <td>            
+                        <b>Colegio Adventista Emanuel</b><br>                      
+                        <i>Dedicaci&oacute;n: </i>6&nbsp;horas Semanales
+                        Enero de 2007            
+                        Noviembre de 2007<br><br>   
+                                    
+                        
+                        
+                        
+                    </td>
+                </tr>
+                
+                </table>
+                
+                </td>
+                </tr>
+                <tr>        
+                    <td width="100%"><a name="otra_info_personal"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 >&Aacute;reas de actuaci&oacute;n</h3></td>
+                            </tr>        
+                                   
+                            <tr>
+                                <td><li>&nbsp;Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía)</li></td>
+                </tr>            
+                       
+                            <tr>
+                                <td><li>&nbsp;Ciencias Naturales -- Matemática -- Estadísticas y Probabilidades (Investigación en Metodologías)</li></td>
+                </tr>            
+                       
+                            <tr>
+                                <td><li>&nbsp;Ciencias Naturales -- Matemática -- Matemáticas Aplicadas</li></td>
+                </tr>            
+                       
+                            <tr>
+                                <td><li>&nbsp;Ciencias Naturales -- Matemática -- Matemáticas Puras</li></td>
+                </tr>            
+                       
+                            <tr>
+                                <td><li>&nbsp;Ingeniería y Tecnología -- Otras Ingenierías y Tecnologías -- Otras Ingenierías y Tecnologías</li></td>
+                </tr>            
+                
+                </table>
+                </td>
+                </tr>
+                <tr>        
+                    <td width="100%"></td>
+                </tr>
+                <tr>        
+                    <td width="100%">
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 >L&iacute;neas de investigaci&oacute;n</h3></td>
+                            </tr>
+                                    
+                            <tr>
+                                <td><li>&nbsp;formación docente, <i>Activa:</i>Si</li></td>
+                </tr>        
+                
+                </table>
+                </td>
+                </tr>
+                <tr>        
+                    <td width="100%">
+
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 >Reconocimientos</h3></td>
+                            </tr>
+                                
+                            <tr>
+                                <td><li>Reconocimiento por publicación científica,Corporación Universitaria Adventista - Mayode 2018</li></td>
+                </tr>
+                    
+                            <tr>
+                                <td><li>Participación como coautor de libro ,Corporación Universitaria Adventista - Octubrede 2018</li></td>
+                </tr>
+                    
+                            <tr>
+                                <td><li>Participación como autor de artículo,Corporación Universitaria Adventista - Octubrede 2018</li></td>
+                </tr>
+                    
+                            <tr>
+                                <td><li>Aporte institucional a la apuesta pedagógica,Corporación Universitaria Adventista - Juliode 2016</li></td>
+                </tr>
+                    
+                            <tr>
+                                <td><li>Reconocimiento aporte a investigación,Corporación Universitaria Adventista - Juliode 2016</li></td>
+                </tr>
+                
+                </table>
+                </td>
+                </tr>
+                <tr>
+                    <td width="100%" align="right">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td><blockquote class="fillText">Los ítems de producción con la marca  <img src='/cvlac/images/chulo.jpg' height="15px" width="15px"> corresponden a productos avalados y validados para la última <i>Convocatoria Nacional para el Reconocimiento y Medición de Grupos de Investigación, Desarrollo Tecnológico o de Innovación y para el Reconocimiento de Investigadores del SNCTeI</i></blockquote></td>
+                </tr>        
+                <!--Inicio asesorias-->
+                <tr>        
+                    <td width="100%"><a name="asesorias"></a></td>
+                </tr>
+                <!--Fin asesorias-->
+                <!--Inicio curso corta -->
+                <tr>        
+                    <td width="100%"><a name="curso_corta_du"></a></td>
+                </tr>
+                <!--Fin curso corta-->
+                <!--Inicio trabajos dirigidos-->
+                <tr>
+                    <td width="100%"><a name="trabajos_dirigi"></a>    <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3>Trabajos dirigidos/tutor&iacute;as</h3></td>
+                            </tr>
+                             
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Monografía de conclusión de curso de perfeccionamiento/especialización</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Herramientas virtuales para el aprendizaje del inglés del grado 4to de primaria del ICOLVEN: propuesta didáctica&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2018.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Integración de la fe y la enseñanza : aprendizaje en la experiencia docente&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Innovación de estrategias en la integración de la fe en la enseñanza y aprendizaje&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Relaciones familiares y su relación con el desempeño escolar&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Fortalecimiento en el aprendizaje significativo mediante la integración de la fe&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Escuela de padres, construcción de guía metodológica para instituciones adventistas&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            LICENCIATURA EN PREESCOLAR,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Propuesta para la enseñanza del concepto paz a partir de la Biblia desde una perspectiva interdisciplinar&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Estrategia didáctica para la enseñanza de la operaciones matemáticas básicas a estudiantes del grado transición del Colegio Adventista Libertad de Sabana de Torres, con el uso del Ábaco Japonés&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Conocimiento y práctica de los hábitos saludables en docentes de colegios adventistas&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Procesos de lectura en los educandos de la Corporación Educativa Adventista C.E.A. del grado primero.&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            El proyecto de aula como estrategia motivadora para el aprendizaje en los alumnos de octavo grado del Colegio Adventista Turbo ( CAT)&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Experiencia curricular en el Colegio Adventista de Cartagena para la integración de fe enseñanza y aprendizaje&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Estrategias de evaluación integral por competencias en la Institución educativa adventista de Zaragoza&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            El clima organizacional y la calidad educativa en el Colegio Adventista Bethel de Saravena, durante el segundo semestre escolar, 2019&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Propuesta de reglamento interno de trabajo para el Instituto Colombo Venezolano&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Desarrollo de la comprensión lectora en estudiantes de grado décimo del colegio adventista de Villavicencio&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Estrategias para la enseñanza de competencias lectoras en el grado décimo del Colegio Adventista del Atlántico Max Trummer&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Estrategias de fortalecimiento del inglés mediante blog educativo para estudiantes del grado octavo de los colegios Cadel y Cadeg&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Enseñar a aprender desde la perspectiva cristiana filosófica según George Knight&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Inclusión del creole en la lectura y escritura en el aula de clase&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Fortalecimiento del proceso lecto escritor integrado la fe en el aprendizaje&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Fortalecimiento de la comprensión lectora en los estudiantes de 4o grado de la I.E. Adventista de Quibdó Bolívar Escandón&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Propuesta didáctica ¿Disfruta leyendo y aprendiendo¿&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Eficacia del programa pre saber 11 del Colegio Adventista de Ibagué en el desarrollo de competencias de lectura crítica&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2019.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Estado del arte en investigación sobre el uso y aplicacion de las TIC en la Educación Inical (3 a 6 años) en Medellín Colombia&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            LICENCIATURA EN PREESCOLAR,
+                            &nbsp;2012.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Miled López; Marcela Ortíz&nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajo de grado de maestría o especialidad clínica</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            	Propuesta de una Estrategia en el Acompañamiento Parental Frente al Rendimiento Académico de los Estudiantes de una Institución Educativa&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            MAESTRÍA EN EDUCACIÓN,
+                            &nbsp;2022.
+                            <i>Dirigi&oacute; como: </i>,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Blanca Lidia Peña Zarate
+                            Leidy Paola Monsalve Ramirez
+                                                        
+                            
+                            
+                            Asesor(es): EDGARDO JAVIER RAMOS CABALLERO , WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Trabajos dirigidos/Tutorías - Tesis de doctorado</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Impact of the Regionalization of Universidad de Antioquia in the Development of Human Capital and Impr elopment of Human Capital and Improvement of the E ement of the Equity in quity in the Region of Urabá&nbsp;
+                            Universidad de Andrews&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            PhD. Higher Education Administration,
+                            &nbsp;2021.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Monica Castaño Mejía
+                                                        
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos dirigidos/Tutorías de otro tipo</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            La Informática como herramienta de aprendizaje de la física del grado sexto&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2015.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Anyela Ru¿íz López - Jaider Ruíz - Oliverio Pinzón&nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Monografía de conclusión de curso de perfeccionamiento/especialización</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Sistema de Gestión para la Creación de materiales digitales y cursos virtuales en la UNAC&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2014.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Kirenia Castillo Llorente - Rodolfo Villaquirán Muñoz&nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Trabajos dirigidos/Tutorías - Trabajos de grado de pregrado</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Ludoteca bilingüe, una estrategia didáctica para reforzar el aprendizaje del inglés en niños de 5 - 7 años del Instituto Adventista del Carare (INAC)&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            Licenciatura en Educación básica en énfasis en español e inglés,
+                            &nbsp;2015.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Duran Morales, Giovanni; Martínez Blanco, Lady Yanira; Reyes Ortíz, Nury&nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Monografía de conclusión de curso de perfeccionamiento/especialización</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Diseño de un sistema de gestión para el desarrollo de materiales digitales en Unac virtual &#65279;&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2015.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Rodolfo Villaquirán Muñoz &nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Monografía de conclusión de curso de perfeccionamiento/especialización</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Factibilidad de la enseñanza mediada por las TIC en los colegios adventistas de la Unión Colombiana del Sur &#65279;&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2016.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Magda Milena Dussán Aldana ; Omar Enrique Pautt Zubiria&nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Monografía de conclusión de curso de perfeccionamiento/especialización</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Caracterización y diseño de un sistema de evaluación del profesorado para los colegios adventistas del Norte y Emmanuel en Bogotá &#65279;&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2015.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Velosa Ortiz, Esther; Sánchez, Olga Judith&nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                 
+                            <tr>
+                                <td><li>
+                                
+                                <b>Trabajos dirigidos/Tutorías - Monografía de conclusión de curso de perfeccionamiento/especialización</b></li>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                                            
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Los videojuegos y el rendimiento académico&nbsp;
+                            Corporación Universitaria Adventista&nbsp;
+                            Estado: Tesis concluida&nbsp;
+                            ESPECIALIZACION EN DOCENCIA,
+                            &nbsp;2018.
+                            <i>Dirigi&oacute; como: </i>Tutor principal,&nbsp;
+                            &nbsp;<i>Persona(s) orientada(s):&nbsp;</i>                            
+                            
+                            Juan Javier Vásquez&nbsp;                            
+                            
+                            
+                            Tutor(es)/Cotutor(es): WILSON ARANA PALOMINO,
+                               
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),
+                            
+                            
+                        </blockquote>                    
+                    </td>                         
+                </tr>            
+                        
+                </table>    
+                </td>
+                </tr> 
+                <!--Fin trabajos dirigidos-->
+                <tr>
+                    <td width="100%" align="right">&nbsp;</td>
+                </tr>
+                <!--Inicio jurados-->
+                <tr>
+                    <td width="100%"><a name="jurado"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 >Jurado en comit&eacute;s de evaluaci&oacute;n</h3></td>
+                            </tr>
+                                
+                            <tr>
+                                <td><li><b>Datos complementarios - Jurado/Comisiones evaluadoras de trabajo de grado - Doctorado</b></li></td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                
+                            WILSON ARANA PALOMINO,                    
+                            
+                            <i>Titulo:&nbsp;</i>IMPACT OF THE REGIONALIZATION OF UNIVERSITY OF ANTIOQUIA IN THE DEVELOPMENT OF HUMAN CAPITAL AND IMPROVEMENT OF THE EQUITY IN THE REGION OF URABÁ                
+                            <i>Tipo de trabajo presentado:&nbsp;</i>Trabajo de grado/tesis
+                            <i>en:&nbsp;</i> Universidad de Andrews&nbsp;
+                            <i>programa acad&eacute;mico</i> PhD. Higher Education Administration&nbsp;
+                            <i>Nombre del orientado:&nbsp;</i>Monica Castaño Mejía &nbsp;                
+                            
+                            
+                            
+                                           
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+                            
+                            
+                            
+
+                        </blockquote>
+                    </td>
+                </tr>
+                
+                </table>
+                </td>
+                </tr>
+                <!--Fin jurados-->
+                <!--Inicio Participacion comite-->
+                <tr>
+                    <td width="100%"><a name="comite"></a></td>
+                </tr>
+                <!--Fin particiacion comite-->
+                <!--Inicio par evaluador-->
+                <tr>
+                    <td><a name="par"></a></td>
+                </tr>
+                <!--Fin par evaluador-->
+                <!--Inicio Consultorias -->
+                <tr>       
+                    <td width="100%">
+
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3 id="trabajos_tec" >Consultor&iacute;as</h3></td>
+                            </tr>
+                                
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Producción técnica - Consultoría Científico Tecnológica e Informe Técnico - Otra</b></li></td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Evaluación por Competencias y Estándares Curriculares,
+                            <i>Nombre comercial: </i>,
+                            <i>contrato/registro: </i>A-171,
+                            . En: Colombia,&nbsp;
+                            ,2019,&nbsp;
+                            0 meses &nbsp;
+                            p.&nbsp;                
+                            
+                            
+                            
+                                           
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+                            
+                            
+                            
+                            <br><b>Sectores: </b><br>
+                                                    
+                            Educación - Educación preescolar y básica,                    
+                                                    
+                            Educación - Educación secundaria de formación general,                    
+                                                    
+                            Educación - Educación secundaria de formación técnica,                    
+                            
+
+                        </blockquote>
+
+                    </td>
+                </tr>
+                    
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Producción técnica - Consultoría Científico Tecnológica e Informe Técnico - Otra</b></li></td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                
+                            WILSON ARANA PALOMINO,                    
+                            
+                            Cosmovisión Institucional y la Enseñanza,
+                            <i>Nombre comercial: </i>,
+                            <i>contrato/registro: </i>A-171,
+                            . En: Colombia,&nbsp;
+                            ,2018,&nbsp;
+                            0 meses &nbsp;
+                            p.&nbsp;                
+                            
+                            
+                            
+                                           
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+                            
+                            
+                            
+                            <br><b>Sectores: </b><br>
+                                                    
+                            Educación - Educación secundaria de formación general,                    
+                                                    
+                            Educación - Educación preescolar y básica,                    
+                            
+
+                        </blockquote>
+
+                    </td>
+                </tr>
+                    
+                            <tr>
+                                <td><li>
+                                
+                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                
+                                <b>Producción técnica - Consultoría Científico Tecnológica e Informe Técnico - Servicios de Proyectos de I+D+I</b></li></td>
+                </tr>
+                <tr>
+                    <td>
+                        <blockquote>
+                                                
+                            WILSON ARANA PALOMINO,                    
+                                                
+                            MILTON ANDRES JARA RAMIREZ,                    
+                            
+                            Implementación platafomra LMS Moddle en el marco de lap ndemia COVID -19,
+                            <i>Nombre comercial: </i>,
+                            <i>contrato/registro: </i>Convenio interinstitucional,
+                            . En: Colombia,&nbsp;
+                            ,2020,&nbsp;
+                            0 meses &nbsp;
+                            p.&nbsp;                
+                            
+                            
+                            
+                                           
+                            <br><b>Areas: </b><br>
+                                                    
+                            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+                            
+                            
+                            
+                            <br><b>Sectores: </b><br>
+                                                    
+                            Educación - Educación secundaria de formación general,                    
+                            
+
+                        </blockquote>
+
+                    </td>
+                </tr>
+                
+                </table>
+                </td>
+                </tr>
+                <!--Fin Consultorias-->
+                <!--Inicio edicion-->
+                <tr>        
+                    <td width="100%"><a name="edicion"></a></td>
+                </tr>
+                <!--Fin edicion-->
+                <!--Inicio eventos cientificos-->
+                <tr>        
+                    <td width="100%"><a name="evento"></a>
+                        <table width="100%" style="border:#999 1px solid">
+                            <tr>
+                                <td><h3>Eventos cient&iacute;ficos</h3></td>
+                            </tr>
+                                
+                            <tr>
+                                <td> 
+                                    <table>           
+                                        <tr>
+                                            <td>
+                                                
+                                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                                
+                                                <b>1</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>Congreso de Investigación y Pedagogía III Nacional II Internacional&nbsp;
+                                                <i>Tipo de evento: </i>Congreso&nbsp;
+                                                <i>&Aacute;mbito: </i>Internacional&nbsp;                
+                                                <i>Realizado el:2013-10-09 00:00:00.0,&nbsp;
+                                                    2013-10-11 00:00:00.0 &nbsp;
+                                                    en TUNJA &nbsp; - Centro de convenciones de Tunja   &nbsp;
+                                            </td>                         				
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Productos asociados</b><br>
+                                                
+                                                <ul>
+                                                    <li><i>Nombre del producto:</i>EXPERIENCIA DE UN LABORATORIO VIRTUAL DE MATEMÁTICAS DISEÑADO EN LA PLATAFORMA MOODLE
+                                                        <i>Tipo de producto:</i>Producción bibliográfica - Trabajos en eventos (Capítulos de memoria) - Completo
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Instituciones asociadas</b><br>					
+                                                
+                                                <ul><li><i>Nombre de la instituci&oacute;n:</i>Corporación Universitaria Adventista
+                                                        <i>Tipo de vinculaci&oacute;n</i>Patrocinadora</li></ul>
+                                                        
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Participantes</b><br>
+                                                
+                                                <ul><li><i>Nombre: </i>WILSON ARANA PALOMINO
+                                                        <i>Rol en el evento: </i>Ponente
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>   
+                                </td>                         				
+                            </tr>          
+                                
+                            <tr>
+                                <td> 
+                                    <table>           
+                                        <tr>
+                                            <td>
+                                                
+                                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                                
+                                                <b>2</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>CIES 2022. Illuminating the POWER OF IDEA/LISM&nbsp;
+                                                <i>Tipo de evento: </i>Congreso&nbsp;
+                                                <i>&Aacute;mbito: </i>Internacional&nbsp;                
+                                                <i>Realizado el:2022-04-18 00:00:00.0,&nbsp;
+                                                    2022-04-22 00:00:00.0 &nbsp;
+                                                    en Minneapolis &nbsp; - Minneapolis, Minnesota &nbsp;
+                                            </td>                         				
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Productos asociados</b><br>
+                                                
+                                                <ul>
+                                                    <li><i>Nombre del producto:</i>Global Citizenship Education from a Restorative Pedagogical Approach: Between Decolonization and Consciousness.
+                                                        <i>Tipo de producto:</i>Producción técnica - Presentación de trabajo - Conferencia
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Instituciones asociadas</b><br>					
+                                                
+                                                <ul><li><i>Nombre de la instituci&oacute;n:</i>Corporación Universitaria Adventista
+                                                        <i>Tipo de vinculaci&oacute;n</i>Patrocinadora</li></ul>
+                                                        
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Participantes</b><br>
+                                                
+                                                <ul><li><i>Nombre: </i>GUSTAVO J GREGORUTTI
+                                                        <i>Rol en el evento: </i>Ponente
+                                                    </li>
+                                                </ul>
+                                                
+                                                <ul><li><i>Nombre: </i>WILSON ARANA PALOMINO
+                                                        <i>Rol en el evento: </i>Ponente
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>   
+                                </td>                         				
+                            </tr>          
+                                
+                            <tr>
+                                <td> 
+                                    <table>           
+                                        <tr>
+                                            <td>
+                                                
+                                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                                
+                                                <b>3</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>4° Congreso de investigación de la División Interamericana&nbsp;
+                                                <i>Tipo de evento: </i>Congreso&nbsp;
+                                                <i>&Aacute;mbito: </i>Internacional&nbsp;                
+                                                <i>Realizado el:2021-03-10 00:00:00.0,&nbsp;
+                                                    2021-03-13 00:00:00.0 &nbsp;
+                                                    en MEDELLÍN &nbsp; - Corporación Universitaria Adventista &nbsp;
+                                            </td>                         				
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Productos asociados</b><br>
+                                                
+                                                <ul>
+                                                    <li><i>Nombre del producto:</i>Aproximación a un Contraste White-Freire en Cuanto a la Educación Pertinente y Libertaria
+                                                        <i>Tipo de producto:</i>Producción técnica - Presentación de trabajo - Ponencia
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Instituciones asociadas</b><br>					
+                                                
+                                                <ul><li><i>Nombre de la instituci&oacute;n:</i>Corporación Universitaria Adventista
+                                                        <i>Tipo de vinculaci&oacute;n</i>Gestionadora</li></ul>
+                                                        
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Participantes</b><br>
+                                                
+                                                <ul><li><i>Nombre: </i>WILSON ARANA PALOMINO
+                                                        <i>Rol en el evento: </i>Ponente
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>   
+                                </td>                         				
+                            </tr>          
+                                
+                            <tr>
+                                <td> 
+                                    <table>           
+                                        <tr>
+                                            <td>
+                                                
+                                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                                
+                                                <b>4</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>5° Congreso de investigación de la División Interamericana&nbsp;
+                                                <i>Tipo de evento: </i>Otro&nbsp;
+                                                <i>&Aacute;mbito: </i>Nacional&nbsp;                
+                                                <i>Realizado el:2023-03-14 00:00:00.0,&nbsp;
+                                                    2023-03-16 00:00:00.0 &nbsp;
+                                                    en Cantón Central de Alajuela &nbsp; - UNADECA &nbsp;
+                                            </td>                         				
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Productos asociados</b><br>
+                                                
+                                                <ul>
+                                                    <li><i>Nombre del producto:</i>Apreximación a un modelo de alertas tempranas para la deserción
+                                                        <i>Tipo de producto:</i>Producción técnica - Presentación de trabajo - Ponencia
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Instituciones asociadas</b><br>					
+                                                
+                                                <ul><li><i>Nombre de la instituci&oacute;n:</i>UNADECA
+                                                        <i>Tipo de vinculaci&oacute;n</i>Patrocinadora</li></ul>
+                                                        
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Participantes</b><br>
+                                                
+                                                <ul><li><i>Nombre: </i>JAIME BLANCO LOPEZ
+                                                        <i>Rol en el evento: </i>Ponente
+                                                    </li>
+                                                </ul>
+                                                
+                                                <ul><li><i>Nombre: </i>WILSON ARANA PALOMINO
+                                                        <i>Rol en el evento: </i>Ponente
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>   
+                                </td>                         				
+                            </tr>          
+                                
+                            <tr>
+                                <td> 
+                                    <table>           
+                                        <tr>
+                                            <td>
+                                                
+                                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                                
+                                                <b>5</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i>XVII Encuentro Departamental de Semilleros de Investigación de la RedCOLSI &nbsp;
+                                                <i>Tipo de evento: </i>Taller&nbsp;
+                                                <i>&Aacute;mbito: </i>Nacional&nbsp;                
+                                                <i>Realizado el:2018-05-09 00:00:00.0,&nbsp;
+                                                    2018-05-11 00:00:00.0 &nbsp;
+                                                    en MEDELLÍN &nbsp; - Institución Universitaria de Envigado &nbsp;
+                                            </td>                         				
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Productos asociados</b><br>
+                                                
+                                                <ul>
+                                                    <li><i>Nombre del producto:</i>Taller Construcción de un Estado de Arte
+                                                        <i>Tipo de producto:</i>Producción técnica - Presentación de trabajo - Otro
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Instituciones asociadas</b><br>					
+                                                
+                                                <ul><li><i>Nombre de la instituci&oacute;n:</i>Corporación Universitaria Adventista
+                                                        <i>Tipo de vinculaci&oacute;n</i>Patrocinadora</li></ul>
+                                                        
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Participantes</b><br>
+                                                
+                                                <ul><li><i>Nombre: </i>WILSON ARANA PALOMINO
+                                                        <i>Rol en el evento: </i>Ponente , Ponente magistral
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>   
+                                </td>                         				
+                            </tr>          
+                                
+                            <tr>
+                                <td> 
+                                    <table>           
+                                        <tr>
+                                            <td>
+                                                
+                                                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                                                
+                                                <b>6</b>&nbsp;<i><b>Nombre del evento:&nbsp;</b></i> I CUMBRE DE FACULTADES DE EDUCACIÓN&nbsp;
+                                                <i>Tipo de evento: </i>Congreso&nbsp;
+                                                <i>&Aacute;mbito: </i>Nacional&nbsp;                
+                                                <i>Realizado el:2019-03-21 00:00:00.0,&nbsp;
+                                                    2019-03-22 00:00:00.0 &nbsp;
+                                                    en CALI &nbsp; - Universidad de San Buenaventura &nbsp;
+                                            </td>                         				
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Productos asociados</b><br>
+                                                
+                                                <ul>
+                                                    <li><i>Nombre del producto:</i>La enseñanza de límites de funciones apoyada en Moodle ¿ SVGA.
+                                                        <i>Tipo de producto:</i>Producción técnica - Presentación de trabajo - Ponencia
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Instituciones asociadas</b><br>					
+                                                
+                                                <ul><li><i>Nombre de la instituci&oacute;n:</i>Corporación Universitaria Adventista
+                                                        <i>Tipo de vinculaci&oacute;n</i>Patrocinadora</li></ul>
+                                                        
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                
+                                                <b>Participantes</b><br>
+                                                
+                                                <ul><li><i>Nombre: </i>WILSON ARANA PALOMINO
+                                                        <i>Rol en el evento: </i>Asistente , Ponente
+                                                    </li>
+                                                </ul>
+                                                
+                                            </td>
+                                        </tr>
+                                    </table>   
+                                </td>                         				
+                            </tr>          
+                             
+                        </table> 
+                        </td>
+                </tr>
+                <!--Fin eventos cientificos-->
+                <!--Inicio redes de conocimiento-->
+                <tr>        
+                    <td width="100%"><a name="re_co"></a></td>
+                </tr>
+                <!--Fin redes de conocimiento-->
+                
+                <!--Inicio ProyectosExtensionRespSoc-->
+                <tr>        
+                    <td width="100%"><a name="pr_ex_re"></a></td>
+                </tr>
+                <!--Fin ProyectosExtensionRespSoc-->
+                
+
+                <!--               //  //APROPIACION FORTALECIMIENTOS-->
+                <tr>
+                    <td width="100%"><a name="asc_for"></a></td>
+                </tr>
+
+                <!--                FIN FORTALECIMIENTOS-->
+
+                <!--               //  //APROPIACION TRABAJOS-->
+                <tr>
+                    <td width="100%"><a name="asc_tra"></a></td>
+                </tr>
+
+                <!--                FIN TRABAJOS-->
+
+                <!-- APROPIACION GENERACION-->
+                <tr>
+                    <td width="100%"><a name="asc_gen"></a></td>
+                </tr>
+
+                <!--                FIN GENERACION-->
+
+                <!-- APROPIACION CADENAS-->
+                <tr>
+                    <td width="100%"><a name="asc_cad"></a></td>
+                </tr>
+
+                <!--                FIN CADENAS-->
+
+                <!-- DIVULGACION CONTENIDO EDITORIAL-->
+                <tr>
+                    <td width="100%"><a name="div_ced"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO EDITORIAL-->
+
+                <!-- DIVULGACION CONTENIDO AUDIOVISUAL -->
+                <tr>
+                    <td width="100%"><a name="div_cda"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO AUDIOVISUAL-->
+
+                <!-- DIVULGACION CONTENIDO SONORO -->
+                <tr>
+                    <td width="100%"><a name="div_cds"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO SONORO-->
+
+                <!-- DIVULGACION CONTENIDO RECURSOS -->
+                <tr>
+                    <td width="100%"><a name="div_cdr"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO RECURSOS-->
+
+                <!-- DIVULGACION TRANSMEDIA -->
+                <tr>
+                    <td width="100%"><a name="div_ctr"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO TRANSMEDIA-->
+
+                <!-- DIVULGACION DESARROLLO WEB  -->
+                <tr>
+                    <td width="100%"><a name="div_des"></a></td>
+                </tr>
+
+                <!--                FIN CONTENIDO RECURSOS-->
+
+
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+        
+
+        <!--Inicio Articulos-->				   	
+    <tr>        
+        <td width="100%"><a name="articulos"></a>         
+
+            <table width="100%" style="border:#999 1px solid">
+                <tr>
+                    <td><h3 >Art&iacute;culos</h3></td>
+                </tr>
+                
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                WILSON ARANA PALOMINO,                    
+                
+                "Hacia una difinición de currículo en una institución superior de educación adventista. Una revisión crítica de diferentes posturas curriculares"
+                . En: Argentina&nbsp;<br>
+                Enfoques - Revista De La Universidad Adventista Del Plata -&nbsp;
+                <i>ISSN:</i>&nbsp;1669-2721&nbsp;
+                <i>ed:</i>&nbsp;<br>
+                <i>v.</i>29
+                <i>fasc.</i>
+                p.1
+                - 24
+                ,2017,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                Currículo,                    
+                                    
+                Constructo,                    
+                                    
+                Escuela,                    
+                                    
+                Institución,                    
+                                    
+                Educación,                    
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                WILSON ARANA PALOMINO,                    
+                
+                "La comunicación como estrategia de estímulo para la producción investigativa"
+                . En: Colombia&nbsp;<br>
+                Unaciencia - Revista De Estudios E Investigaciones&nbsp;
+                <i>ISSN:</i>&nbsp;2027-3916&nbsp;
+                <i>ed:</i>&nbsp;Universidad Adventista<br>
+                <i>v.</i>8
+                <i>fasc.</i>N/A
+                p.21
+                - 24
+                ,2012,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                WILSON ARANA PALOMINO,                    
+                
+                "Diferencia constructiva entre docentes presenciales y tutores a distancia"
+                . En: Colombia&nbsp;<br>
+                Unaciencia - Revista De Estudios E Investigaciones&nbsp;
+                <i>ISSN:</i>&nbsp;2027-3916&nbsp;
+                <i>ed:</i>&nbsp;Universidad Adventista<br>
+                <i>v.</i>8
+                <i>fasc.</i>N/A
+                p.43
+                - 49
+                ,2012,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                WILSON ARANA PALOMINO,                    
+                
+                "Computadores y software social: Reflexiones sobre una realidad local"
+                . En: Colombia&nbsp;<br>
+                Unaciencia - Revista De Estudios E Investigaciones&nbsp;
+                <i>ISSN:</i>&nbsp;2027-3916&nbsp;
+                <i>ed:</i>&nbsp;Universidad Adventista<br>
+                <i>v.</i>N/A
+                <i>fasc.</i>8
+                p.34
+                - 42
+                ,2012,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                WILSON ARANA PALOMINO,                    
+                
+                "Informática educativa y la educación colombiana: una mirada actual"
+                . En: Colombia&nbsp;<br>
+                Unaciencia - Revista De Estudios E Investigaciones&nbsp;
+                <i>ISSN:</i>&nbsp;2027-3916&nbsp;
+                <i>ed:</i>&nbsp;Universidad Adventista<br>
+                <i>v.</i>8
+                <i>fasc.</i>N/A
+                p.57
+                - 64
+                ,2012,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                WILSON ARANA PALOMINO,                    
+                
+                "Educar para la integración o para la integridad"
+                . En: Colombia&nbsp;<br>
+                Unaciencia - Revista De Estudios E Investigaciones&nbsp;
+                <i>ISSN:</i>&nbsp;2027-3916&nbsp;
+                <i>ed:</i>&nbsp;Universidad Adventista<br>
+                <i>v.</i>8
+                <i>fasc.</i>N/A
+                p.50
+                - 56
+                ,2012,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                WILSON ARANA PALOMINO,                    
+                
+                "Impacto de herramientas Moodle en el aprendizaje de límites de funciones"
+                . En: Colombia&nbsp;<br>
+                REVISTA VIRTUAL UNIVERSIDAD CATOLICA DEL NORTE&nbsp;
+                <i>ISSN:</i>&nbsp;0124-5821&nbsp;
+                <i>ed:</i>&nbsp;<br>
+                <i>v.</i>1
+                <i>fasc.</i>36
+                p.75
+                - 103
+                ,2012,
+                <i>&nbsp;DOI:&nbsp;</i>
+                
+                
+                <br><b>Palabras: </b><br>
+                                    
+                actitud del estudiante,                    
+                                    
+                aptitud,                    
+                                    
+                enseñanza asistida por computador,                    
+                                    
+                enseñanza de las matemáticas,                    
+                
+
+                
+                
+                <br><b>Sectores: </b><br>
+                                        
+                Educación - Educación superior,                    
+                                        
+                Educación - Formación permanente y otras actividades de enseñanza, incluso educación a distancia y educación especial,                    
+                                        
+                Educación - Otro,                    
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+                <tr>
+                    <td>                            
+                <li>                                
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción bibliográfica - Artículo - Publicado en revista especializada</b>
+                </li>
+        </td>
+    </tr>            
+    <tr>
+        <td>            
+            <blockquote>  
+                                    
+                WILSON ARANA PALOMINO,                    
+                                    
+                GELVER PEREZ PULIDO,                    
+                                    
+                MILTON ANDRES JARA RAMIREZ,                    
+                
+                "EL DISEÑO CURRICULAR. UN ESTADO DE ARTE"
+                . En: Colombia&nbsp;<br>
+                REVISTA PENSAMIENTO AMERICANO&nbsp;
+                <i>ISSN:</i>&nbsp;2027-2448&nbsp;
+                <i>ed:</i>&nbsp;<br>
+                <i>v.</i>10
+                <i>fasc.</i>
+                p.228
+                - 243
+                ,2017,
+                <i>&nbsp;DOI:&nbsp;</i>http://dx.doi.org/10.21803/penamer.10.19.491
+                
+                
+
+                
+                            
+            </blockquote>
+        </td>
+    </tr>
+    
+</table>
+</td>
+</tr>
+<!--Fin Articulos-->
+<!--Inicio libros-->
+<tr>        
+    <td width="100%"><a name="libros"></a>
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td><h3 >Libros</h3></td>
+            </tr>
+                
+            <tr>
+                <td><li>
+                
+                <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                
+                <b>Producción bibliográfica - Libro - Libro resultado de investigación</b>
+            </li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+            
+            "Hacia una pedagogía restauradora. Una propuesta desde la cosmovisión educativa adventista"
+            En: Colombia
+            2018.&nbsp;
+            ed:sed unac&nbsp;
+            <i>ISBN:</i>&nbsp;978-958-59993-5-0&nbsp;
+            <i>v. </i>
+            <i>pags.</i>&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+        </blockquote>
+    </td>
+</tr>
+
+</table>
+</td>
+</tr>       
+<!--Fin libros-->
+<!--Inicio capitulos libro-->
+<tr>        
+    <td width="100%"><a name="capitulos"></a>        
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td colspan="2"><h3 >Capitulos de libro</h3></td>
+            </tr>
+                
+            <tr>        
+                <td>                
+            <li>
+                <blockquote>
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    
+                    Tipo: Capítulo de libro<br>
+                    WILSON ARANA PALOMINO,                    
+                    
+
+                    "La Acción Académica"
+                    Hacia una pedagogía restauradora. Una propuesta desde la cosmovisión educativa adventista.
+                    . En: Colombia&nbsp;
+                    <i>ISBN:</i>&nbsp;978-958-59993-5-0&nbsp;
+                    <i>ed:</i>&nbsp;
+                    <i>, v.</i>
+                    , p.63
+                    - 73&nbsp;
+                    
+                    ,2018
+                    
+                    
+                    
+                                   
+                    <br><b>Areas: </b><br>
+                                            
+                    Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+                    
+                    
+                    
+                    <br><b>Sectores: </b><br>
+                                            
+                    Educación - Educación superior,                    
+                                            
+                    Educación - Educación preescolar y básica,                    
+                    
+                </blockquote>
+            </li>
+    </td>        
+</tr>
+    
+            <tr>        
+                <td>                
+            <li>
+                <blockquote>
+                    
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    
+                    Tipo: Capítulo de libro<br>
+                    WILSON ARANA PALOMINO,                    
+                    
+
+                    "Profesor-Estudiante"
+                    Hacia una pedagogía restauradora. Una propuesta desde la cosmovisión educativa adventista.
+                    . En: Colombia&nbsp;
+                    <i>ISBN:</i>&nbsp;978-958-59993-5-0&nbsp;
+                    <i>ed:</i>&nbsp;
+                    <i>, v.</i>
+                    , p.54
+                    - 62&nbsp;
+                    
+                    ,2018
+                    
+                    
+                    
+                                   
+                    <br><b>Areas: </b><br>
+                                            
+                    Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+                    
+                    
+                    
+                    <br><b>Sectores: </b><br>
+                                            
+                    Educación - Formación permanente y otras actividades de enseñanza, incluso educación a distancia y educación especial,                    
+                    
+                </blockquote>
+            </li>
+    </td>        
+</tr>
+
+</table>
+</td>
+</tr> 
+<!--Fin capitulos libro-->
+<!--Inicio nota cientifica-->			   	
+<tr>        
+    <td width="100%"><a name="nota_cientifica"></a></td>
+</tr>
+<!--Fin Nota cientificas-->
+<!--Inicio publicaciones no cienti-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin publicaciones no cienti-->
+<!--Inicio documento trabajo-->
+<tr>        
+    <td width="100%"><a name="otra_prod_biblio"></a></td>
+</tr>	
+<!--Fin documentos trabajo-->
+
+ <!-- LIBROS TRADUCCIONES FILOLOGICAS  -->
+                <tr>
+                    <td width="100%"><a name="lib_tra"></a></td>
+                </tr>
+                
+<!--                FIN TRADUCCIONES FILOLOGICAS-->
+
+ 
+                    <!-- LIBROS DE CREACION -->
+                <tr>
+                    <td width="100%"><a name="lib_cre"></a></td>
+                </tr>
+                
+<!--                FIN LIBROS CREACION-->
+
+  <!-- LIBROS DE FORMACION -->
+                <tr>
+                    <td width="100%"><a name="lib_for"></a></td>
+                </tr>
+                
+<!--                FIN LIBROS FORMACION-->
+
+<!-- LIBROS DE DIVULGACION -->
+                <tr>
+                    <td width="100%"><a name="lib_div"></a></td>
+                </tr>
+                
+<!--                FIN LIBROS DIVULGACION-->
+
+<!--INICIO MANUALES -->
+                <tr>
+                    <td width="100%"><a name="lib_man"></a></td>
+                </tr>
+                
+<!--                FIN MANUALES-->
+<!--INICIO BOLETINES-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--FIN BOLETINES-->
+<!--Inicio traducciones-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin traducciones-->
+
+<!--Inicio otra prod biblio-->
+<tr>        
+    <td width="100%">
+
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td><h3 >Otra producci&oacute;n blibliogr&aacute;fica</h3></td>
+            </tr>
+                
+            <tr>
+                <td>
+                    
+            <li>
+                <b>Producción bibliográfica - Otra producción bibliográfica - Otra</b>
+            </li>
+    </td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+            
+            "Análisis de rendimiento académico y factores sociodemográficos de estudiantes en una institución de educación superior en el periodo 2006-2020"
+            En: Colombia. 
+            2021.
+            
+            
+            
+            
+            <i>p. </i>
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Naturales -- Matemática -- Estadísticas y Probabilidades (Investigación en Metodologías),                    
+            
+            
+            
+        </blockquote>
+    </td>
+</tr>
+
+</table>
+</td>
+</tr>
+<!--Fin otra prod biblio-->
+
+<!--Inicio patentes -->
+<tr>        
+    <td width="100%"><a name="patentes"></a></td>
+</tr>
+<!--Fin patentes -->
+
+
+<!--Inicio secretos -->
+<tr>        
+    <td width="100%"><a name="secretos"></a></td>
+</tr>
+<!--Fin secretos -->
+
+<!--Inicio software-->
+<tr>        
+    <td width="100%"><a name="software"></a></td>
+</tr>
+<!--Fin software-->
+<!--Inicio nutraceutico-->			   	
+<tr>        
+    <td width="100%"><a name="nutraceuticos"></a></td>
+</tr>
+<!--Fin nutraceutico-->
+<!--Inicio de protocolos de vigilancia epidemiológica-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin de protocolos de vigilancia epidemiológica-->
+<!--Inicio de prototipos-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin de prototipos-->
+<tr>        
+    <td width="100%"><a name="tecnologicos"></a>
+
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td><h3 >Productos tecnol&oacute;gicos</h3></td>
+            </tr>
+                
+            <tr>
+                <td>
+                    
+            <li><b>Producción técnica - Productos tecnológicos - Otro </b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+            
+            Limites al Infinito,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2011,&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Formación permanente y otras actividades de enseñanza, incluso educación a distancia y educación especial,                    
+                                    
+            Educación - Educación superior,                    
+                                    
+            Educación - Educación secundaria de formación general,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    
+            <li><b>Producción técnica - Productos tecnológicos - Otro </b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+            
+            Asintotas Horizontales y verticales,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2011,&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+
+        </blockquote>
+    </td>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>        
+    <td width="100%"></td>
+</tr>
+<tr>        
+    <td width="100%"></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></a>
+
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td><h3>Innovaci&oacute;n generada en la gesti&oacute;n empresarial</h3></td>
+            </tr>
+                
+            <tr>
+                <td>
+                    <b>Producción técnica - Innovaciones generadas de producción empresarial - Organizacional</b></td>
+            </tr>
+            <tr>
+                <td>
+                    <blockquote>
+                                            
+                        WILSON ARANA PALOMINO,                    
+                                            
+                        MILTON ANDRES JARA RAMIREZ,                    
+                                            
+                        RODOLFO VILLAQUIRAN MUNOZ,                    
+                        
+                        Implementación y creación de una plataforma educativa LMS basada en Moodle,
+                        <i>Nombre comercial: </i>,
+                        <i>contrato/registro: </i>,
+                        . En: Colombia,&nbsp;
+                        ,2020,&nbsp;
+                        
+                        
+                        
+                                       
+                        <br><b>Areas: </b><br>
+                                                
+                        Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+                        
+                        
+                        
+
+                    </blockquote>
+                </td>
+            </tr>
+                
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+                    <b>Producción técnica - Innovaciones generadas de producción empresarial - Empresarial</b></td>
+            </tr>
+            <tr>
+                <td>
+                    <blockquote>
+                                            
+                        WILSON ARANA PALOMINO,                    
+                        
+                        Sistema de Comunicación Sincrónica para Estudiantes de la UNAC,
+                        <i>Nombre comercial: </i>,
+                        <i>contrato/registro: </i>,
+                        . En: Colombia,&nbsp;
+                        ,2019,&nbsp;
+                        
+                        
+                        
+                                       
+                        <br><b>Areas: </b><br>
+                                                
+                        Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+                        
+                        
+                        
+                        <br><b>Sectores: </b><br>
+                                                
+                        Educación - Formación permanente y otras actividades de enseñanza, incluso educación a distancia y educación especial,                    
+                                                
+                        Educación - Educación superior,                    
+                        
+
+                    </blockquote>
+                </td>
+            </tr>
+            
+        </table>
+        </td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+<!--Inicio Poblaciones mejoradas de razas pecuarias--> 
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+<!--Fin Poblaciones mejoradas de razas pecuarias-->
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+<!--Inicio Nuevo registro cientifico-->
+<tr>        
+    <td width="100%"><a name="registro_cientifico"></a></td>
+</tr>
+<!--Fin Nuevo registro cientifico-->
+<tr>        
+    <td width="100%"><a name="procesos"></a>
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td><h3>Innovaci&oacute;n de proceso o procedimiento</h3></td>
+            </tr>
+                
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+            <li><b>Producción técnica - Innovación de proceso o procedimiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            LORFAN LEAL CAMARGO,                    
+            
+            Operacionalización del Modelo Pedagógico en la Educacion a Distancia,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2014,&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+            <li><b>Producción técnica - Innovación de proceso o procedimiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            JAVIER FRANCISCO CORDOBA PERDOMO,                    
+            
+            MÓDULO DE SION PARA AUTOEVALUACIÓN PARA LA DIRECCIÓN DE CALIDAD DE LA CORPORACIÓN UNIVERSITARIA ADVENTISTA,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2023,&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ingeniería y Tecnología -- Otras Ingenierías y Tecnologías -- Otras Ingenierías y Tecnologías,                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+            <li><b>Producción técnica - Innovación de proceso o procedimiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            ENOC IGLESIAS ORTEGA,                    
+                                
+            GELVER PEREZ PULIDO,                    
+                                
+            GUSTAVO ADOLFO PHEREZ GOMEZ,                    
+                                
+            JOEL PADILLA RUIZ,                    
+                                
+            JOSE DANIEL SINZA PACHAJOA,                    
+            
+            Propuesta Modelo Pedagógico,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2015,&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+            <li><b>Producción técnica - Innovación de proceso o procedimiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            SALVADOR POVEDA JAIMES,                    
+            
+            Documento Maestro Sobre Diseño Curricular,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2014,&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+            <li><b>Producción técnica - Innovación de proceso o procedimiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            JAIME BLANCO LOPEZ,                    
+            
+            PLATAFORMA PARA LA GESTIÓN DE EVIDENCIAS BASADA EN MOODLE, PARA LA DIRECCIÓN DE CALIDAD DE LA CORPORACIÓN UNIVERSITARIA ADVENTISTA,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2023,&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ingeniería y Tecnología -- Otras Ingenierías y Tecnologías -- Otras Ingenierías y Tecnologías,                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+            <li><b>Producción técnica - Innovación de proceso o procedimiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            MILTON ANDRES JARA RAMIREZ,                    
+            
+            Estrategia para la continuidad del servicio educativo,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2020,&nbsp;
+            
+            
+            <br><b>Palabras: </b><br>
+                                
+            enseñanza asistida por computador,                    
+                                
+            Institución,                    
+                                
+            Educación,                    
+                                
+            proyección social,                    
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+            <li><b>Producción técnica - Innovación de proceso o procedimiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            MILTON ANDRES JARA RAMIREZ,                    
+            
+            Estrategia para la gestión y recolección de información de proyección social desde la academia,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2020,&nbsp;
+            
+            
+            <br><b>Palabras: </b><br>
+                                
+            proyección social,                    
+                                
+            Institución,                    
+                                
+            Educación,                    
+                                
+            Currículo,                    
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+            <li><b>Producción técnica - Innovación de proceso o procedimiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            RODOLFO VILLAQUIRAN MUNOZ,                    
+            
+            Sistema de Comunicación Sincrónica para Estudiantes de la UNAC,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2019,&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Formación permanente y otras actividades de enseñanza, incluso educación a distancia y educación especial,                    
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                    
+            <li><b>Producción técnica - Innovación de proceso o procedimiento</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            RODOLFO VILLAQUIRAN MUNOZ,                    
+            
+            Plan de Curso Digital,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>,
+            . En: Colombia,&nbsp;
+            ,2018,&nbsp;
+            
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+    </td>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>        
+    <td width="100%">
+
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td><h3 id="trabajos_tec" >Informes técnicos</h3></td>
+            </tr>
+                
+            <tr>
+                <td>
+                    
+            <li><b>Producción técnica - Consultoría Científico Tecnológica e Informe Técnico - Informe técnico</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+                                
+            MILTON ANDRES JARA RAMIREZ,                    
+            
+            Informe Comparativo del Servicio Educativo por la Emergencia Pública COVID-19,
+            <i>Nombre comercial: </i>,
+            <i>contrato/registro: </i>Insitucional,
+            . En: Colombia,&nbsp;
+            ,2020,&nbsp;
+             meses &nbsp;
+            p.57&nbsp;                
+            
+            
+            <br><b>Palabras: </b><br>
+                                
+            Escuela,                    
+                                
+            Institución,                    
+                                
+            enseñanza asistida por computador,                    
+                                
+            Educación,                    
+                                
+            Currículo,                    
+            
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+            <br><b>Sectores: </b><br>
+                                    
+            Educación - Educación superior,                    
+            
+
+        </blockquote>
+
+    </td>
+</tr>
+
+</table>
+</td>
+</tr>
+<tr>        
+    <td width="100%"></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="disnio"></a></td>
+</tr>
+
+<tr>        
+    <td width="100%"></td>
+</tr>
+
+<!--Inicio de concepto tecnico-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin de concepto tecnico-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Inicio secuencias genticas-->
+<tr>        
+    <td width="100%"></td>
+</tr>
+<!--Fin secuencias genticas-->
+<tr>        
+    <td width="100%"></td>
+</tr>  
+<tr>        
+    <td width="100%"><a name="otra_prod_tecnica"></a></td>
+</tr>          
+<tr>        
+    <td width="100%"></td>
+</tr>
+<tr>        
+    <td width="100%"><a name="demas_trabajos"></a>
+        <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td><h3>Dem&aacute;s trabajos</h3></td>
+            </tr>
+                
+            <tr>
+                <td>
+                    
+            <li><b>Demás trabajos - Demás trabajos</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+            
+            Propuesta de investigación sobre la inclusión en de la virtualidad en el modelo educativo de la UNAC
+            . En: Colombia,&nbsp;
+            ,2011,&nbsp;
+            <i>finalidad: </i>Proponer situación problema para futuros estudios&nbsp;
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    
+            <li><b>Demás trabajos - Demás trabajos</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+            
+            Reestructuración de los procedimientos para la creación de materias virtuales
+            . En: Colombia,&nbsp;
+            ,2011,&nbsp;
+            <i>finalidad: </i>Actualización de los procedimientos para crear objetos de aprendizaje&nbsp;
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    
+            <li><b>Demás trabajos - Demás trabajos</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+            
+            Estudio de un caso: Diagnóstico de una Institución Universitaria que pretende afrontar un eventual proceso de trasformación de programas presenciales a virtuales.
+            . En: Colombia,&nbsp;
+            ,2011,&nbsp;
+            <i>finalidad: </i>Disgnosticar el nivel de virtualización de la institución y de eta manera sentar las bases para decisiones futuras&nbsp;
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+        </blockquote>
+    </td>
+</tr>
+    
+            <tr>
+                <td>
+                    
+            <li><b>Demás trabajos - Demás trabajos</b></li></td>
+</tr>
+<tr>
+    <td>
+        <blockquote>
+                                
+            WILSON ARANA PALOMINO,                    
+            
+            Laboratorio virtual de matemáticas en Moodle
+            . En: Colombia,&nbsp;
+            ,2011,&nbsp;
+            <i>finalidad: </i>Enriquecer los recursos institucionales para la enseñanza de las matemáticas&nbsp;
+            
+                           
+            <br><b>Areas: </b><br>
+                                    
+            Ciencias Sociales -- Ciencias de la Educación -- Educación General (Incluye Capacitación, Pedagogía),                    
+            
+            
+            
+        </blockquote>
+    </td>
+</tr>
+
+</table>
+</td>
+</tr>
+
+<tr>
+    <td width="100%">
+        
+
+</td>
+</tr>
+
+<tr>
+    <td width="100%">
+        
+
+</td>
+</tr>        
+
+<tr>
+    <td width="100%"></td>
+</tr>
+
+<tr>
+
+    <td width="100%"></td>
+</tr>
+
+<tr>
+    <td width="100%">        
+        
+</td>
+</tr>
+
+<tr>
+    <td>    <table width="100%" style="border:#999 1px solid">
+            <tr>
+                <td id="proyectos"><h3>Proyectos</h3></td>
+            </tr>
+                
+
+            <tr>
+                <td>                           
+                    <blockquote>
+                        
+                        <i>Tipo de proyecto:&nbsp;</i>Investigaci&oacute;n y desarrollo&nbsp;<br>
+                        Camino hacia una universidad sostenible<br>
+                        <i>Inicio:&nbsp;</i>Enero&nbsp;
+                        2022                
+                        
+                        
+                        <i>Duraci&oacute;n&nbsp;</i><br>
+                        <b>Resumen</b>
+                        <p class="test1">                                                                 
+                            Impulsar una cultura de sostenibilidad en la UNAC para ser referentes importantes en el área nacional e internacional teniendo actitudes de Proyección Social y Educativa.<br>                                
+                        </p>                                                
+                    </blockquote>                                                
+                </td>                         
+            </tr>
+
+
+
+                
+
+            <tr>
+                <td>                           
+                    <blockquote>
+                        
+                        <i>Tipo de proyecto:&nbsp;</i>Investigaci&oacute;n, desarrollo e Innovaci&oacute;n&nbsp;<br>
+                        FORTALECIMIENTO DE LA CALIDAD EN EL CURRÍCULO Y LA INVESTIGACIÓN FORMATIVA EN EL PROCESO DE ENSEÑANZA<br>
+                        <i>Inicio:&nbsp;</i>Enero&nbsp;
+                        2020                
+                        
+                        
+                        <i>Fin:&nbsp;</i>Diciembre&nbsp;
+                        2021
+                        
+                        <i>Duraci&oacute;n&nbsp;</i><br>
+                        <b>Resumen</b>
+                        <p class="test1">                                                                 
+                            <br>                                
+                        </p>                                                
+                    </blockquote>                                                
+                </td>                         
+            </tr>
+
+
+
+                
+
+            <tr>
+                <td>                           
+                    <blockquote>
+                        
+                        <i>Tipo de proyecto:&nbsp;</i>Investigaci&oacute;n y desarrollo&nbsp;<br>
+                        El diseño curricular desde la perspectiva socio-formativa, una oportunidad para integrar al estudiante como ser holístico<br>
+                        <i>Inicio:&nbsp;</i>Enero&nbsp;
+                        2017                
+                        
+                        
+                        <i>Fin:&nbsp;</i>Diciembre&nbsp;
+                        2017
+                        
+                        <i>Duraci&oacute;n&nbsp;</i><br>
+                        <b>Resumen</b>
+                        <p class="test1">                                                                 
+                            <br>                                
+                        </p>                                                
+                    </blockquote>                                                
+                </td>                         
+            </tr>
+
+
+
+                
+
+            <tr>
+                <td>                           
+                    <blockquote>
+                        
+                        <i>Tipo de proyecto:&nbsp;</i>Investigaci&oacute;n, desarrollo e Innovaci&oacute;n&nbsp;<br>
+                        Modelo Pedagógico de la UNAC<br>
+                        <i>Inicio:&nbsp;</i>Marzo&nbsp;
+                        2012                
+                        
+                        <i>Fin proyectado:&nbsp;</i>Diciembre&nbsp;
+                        2013
+                        
+                        
+                        <i>Fin:&nbsp;</i>Julio&nbsp;
+                        2014
+                        
+                        <i>Duraci&oacute;n&nbsp;</i>18<br>
+                        <b>Resumen</b>
+                        <p class="test1">                                                                 
+                            Construcción propuesta modelo pedagógico<br>                                
+                        </p>                                                
+                    </blockquote>                                                
+                </td>                         
+            </tr>
+
+
+
+                
+
+            <tr>
+                <td>                           
+                    <blockquote>
+                        
+                        <img src='/cvlac/images/chulo.jpg' height="15px" width="15px">
+                        
+                        <i>Tipo de proyecto:&nbsp;</i>Investigaci&oacute;n, desarrollo e Innovaci&oacute;n&nbsp;<br>
+                        Nivel de virtualización de la Corporación Universitaria Adventista<br>
+                        <i>Inicio:&nbsp;</i>Enero&nbsp;
+                        2011                
+                        
+                        <i>Fin proyectado:&nbsp;</i>Julio&nbsp;
+                        2011
+                        
+                        
+                        <i>Fin:&nbsp;</i>Agosto&nbsp;
+                        2011
+                        
+                        <i>Duraci&oacute;n&nbsp;</i>6<br>
+                        <b>Resumen</b>
+                        <p class="test1">                                                                 
+                            Aplicación herramienta para situar los niveles de virtualización de la UNAC en diferentes áreas<br>                                
+                        </p>                                                
+                    </blockquote>                                                
+                </td>                         
+            </tr>
+
+
+
+                
+
+            <tr>
+                <td>                           
+                    <blockquote>
+                        
+                        <i>Tipo de proyecto:&nbsp;</i>Investigaci&oacute;n, desarrollo e Innovaci&oacute;n&nbsp;<br>
+                        Elaboración documento Registro Calificado para nuevo programa de educación superior<br>
+                        <i>Inicio:&nbsp;</i>Agosto&nbsp;
+                        2011                
+                        
+                        <i>Fin proyectado:&nbsp;</i>Febrero&nbsp;
+                        2012
+                        
+                        
+                        <i>Fin:&nbsp;</i>Marzo&nbsp;
+                        2012
+                        
+                        <i>Duraci&oacute;n&nbsp;</i>12<br>
+                        <b>Resumen</b>
+                        <p class="test1">                                                                 
+                            Elaboración documento para obtener el registro calificado del programa Licenciatura en Básica con Énfasis en Matemáticas.  <br>                                
+                        </p>                                                
+                    </blockquote>                                                
+                </td>                         
+            </tr>
+
+
+
+                
+
+            <tr>
+                <td>                           
+                    <blockquote>
+                        
+                        <i>Tipo de proyecto:&nbsp;</i>Investigaci&oacute;n, desarrollo e Innovaci&oacute;n&nbsp;<br>
+                        Impacto de las TIC  en la enseñanza del cálculo<br>
+                        <i>Inicio:&nbsp;</i>Enero&nbsp;
+                        2011                
+                        
+                        <i>Fin proyectado:&nbsp;</i>Noviembre&nbsp;
+                        2011
+                        
+                        
+                        <i>Fin:&nbsp;</i>Diciembre&nbsp;
+                        2011
+                        
+                        <i>Duraci&oacute;n&nbsp;</i>12<br>
+                        <b>Resumen</b>
+                        <p class="test1">                                                                 
+                            Mediante el diseño y uso de un laboratorio virtual de matemáticas se pretende medir el impacto del mismo en el proceso de enseñanza aprendizaje de estudiantes de cálculo I de segundo semestre.<br>                                
+                        </p>                                                
+                    </blockquote>                                                
+                </td>                         
+            </tr>
+
+
+
+                
+
+            <tr>
+                <td>                           
+                    <blockquote>
+                        
+                        <i>Tipo de proyecto:&nbsp;</i>Investigaci&oacute;n, desarrollo e Innovaci&oacute;n&nbsp;<br>
+                        Hacia un modelo E-learning en la UNAC<br>
+                        <i>Inicio:&nbsp;</i>Julio&nbsp;
+                        2011                
+                        
+                        <i>Fin proyectado:&nbsp;</i>Junio&nbsp;
+                        2012
+                        
+                        
+                        <i>Fin:&nbsp;</i>Julio&nbsp;
+                        2013
+                        
+                        <i>Duraci&oacute;n&nbsp;</i>24<br>
+                        <b>Resumen</b>
+                        <p class="test1">                                                                 
+                            Elaboración propuesta de modelo educativo para apoyar el modelo existente en la Corporación Universitaria Advetista.<br>                                
+                        </p>                                                
+                    </blockquote>                                                
+                </td>                         
+            </tr>
+
+
+
+                    
+        </table>    
+        </td>
+</tr>
+
+</body>
+</html>
